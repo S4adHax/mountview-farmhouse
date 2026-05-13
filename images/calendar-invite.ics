@@ -1,0 +1,69 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:icalendar-ruby
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/New_York
+BEGIN:DAYLIGHT
+DTSTART:20250309T030000
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3
+TZNAME:EDT
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:20251102T010000
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
+TZNAME:EST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20250827T203201Z
+UID:65831-CareerFairSession@joinhandshake.com
+DTSTART;TZID=America/New_York:20250925T120000
+DTEND;TZID=America/New_York:20250925T150000
+CREATED:20250415T141141
+DESCRIPTION:Are you ready to take the next step in your career journey? We
+ ’re thrilled to invite you to the Fall Tailgate for Talent Career Fair 2
+ 025 – your gateway to incredible job opportunities\, internships\, and c
+ o-op positions!✨ Meet Top Employers: Connect with recruiters from leadin
+ g companies who are eager to meet talented students like you.✨ Explore D
+ iverse Industries: Discover a variety of fields and learn about the exciti
+ ng projects companies are working on.✨ Showcase Your Skills: Gain valuab
+ le experience speaking with employers and demonstrate what makes you a sta
+ ndout candidate.✨ Secure Your Future: Find full-time careers\, internshi
+ ps\, and co-op positions that match your interests and goals.✨ Professio
+ nal Networking: Build relationships with industry professionals and expand
+  your network.Don't miss out on this incredible opportunity to jumpstart y
+ our career!Register today and prepare for a day of networking\, learning\,
+  and career growth!Trine University’s in-person events will comply\nwith
+  federal\, state\, and local regulations and public safety guidelines to\n
+ support the health and safety of its faculty\, staff\, students\, voluntee
+ rs\, and\nguests.
+LAST-MODIFIED:20250604T150107
+LOCATION:Angola\, Indiana\, United States
+SUMMARY:Tailgate for Talent Fall 2025 - Tailgate for Talent 
+X-ALT-DESC;FMTTYPE=text/html:<b>Are you ready to take the next step in your
+  career journey? <br>We’re thrilled to invite you to the Fall Tailgate f
+ or Talent Career Fair 2025 – your gateway to incredible job opportunitie
+ s\, internships\, and co-op positions!</b><br><div><br>✨ <b>Meet Top Emp
+ loyers: </b>Connect with recruiters from leading companies who are eager t
+ o meet talented students like you.</div><div>✨ <b>Explore Diverse Indust
+ ries:</b> Discover a variety of fields and learn about the exciting projec
+ ts companies are working on.</div><div>✨ <b>Showcase Your Skills: </b>Ga
+ in valuable experience speaking with employers and demonstrate what makes 
+ you a standout candidate.</div><div>✨ <b>Secure Your Future: Find</b> fu
+ ll-time careers\, internships\, and co-op positions that match your intere
+ sts and goals.</div><div>✨ <b>Professional Networking:</b> Build relatio
+ nships with industry professionals and expand your network.</div><p><b>Don
+ 't miss out on this incredible opportunity to jumpstart your career!</b></
+ p><p><b>Register today and prepare for a day of networking\, learning\, an
+ d career growth!</b></p><p><b></b>Trine University’s in-person events wi
+ ll comply\nwith federal\, state\, and local regulations and public safety 
+ guidelines to\nsupport the health and safety of its faculty\, staff\, stud
+ ents\, volunteers\, and\nguests.</p><b></b><p></p>
+END:VEVENT
+END:VCALENDAR

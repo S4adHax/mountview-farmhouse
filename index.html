@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MountView Farmhouse</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background: #111; color: white; }
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 8%; background: rgba(0,0,0,.68); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,.15);
+    }
+    .logo { font-size: 24px; font-weight: 800; }
+    .logo span { color: #6ee7b7; }
+    nav ul { display: flex; list-style: none; gap: 24px; }
+    nav a { color: white; text-decoration: none; font-weight: 700; font-size: 14px; }
+    nav a:hover { color: #6ee7b7; }
+ 
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 8% 60px;
+  overflow: hidden;
+}
+
+.hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+    .hero-content { max-width: 760px; }
+    .tag {
+      display: inline-block; background: rgba(110,231,183,.15); color: #a7f3d0;
+      padding: 10px 18px; border-radius: 30px; margin-bottom: 20px;
+      border: 1px solid rgba(110,231,183,.4);
+    }
+    .hero h1 { font-size: 58px; line-height: 1.05; margin-bottom: 20px; }
+    .hero p { font-size: 20px; line-height: 1.7; color: #eee; margin-bottom: 30px; }
+    .btn {
+      display: inline-block; background: #6ee7b7; color: #111; padding: 15px 28px;
+      border-radius: 30px; text-decoration: none; font-weight: 800;
+      margin-right: 12px; margin-bottom: 12px; border: none; cursor: pointer;
+    }
+
+
+.video-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.video-gallery video {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: #000;
+}
+
+
+.amenities-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.amenities-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.amenities-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.75);
+}
+
+.amenities-content {
+  position: relative;
+  z-index: 2;
+}
+
+
+.location-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.location-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.location-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.50);
+}
+
+.location-content {
+  position: relative;
+  z-index: 2;
+}
+
+    .btn.dark { background: transparent; color: white; border: 1px solid white; }
+    section { padding: 90px 8%; }
+    .section-title { font-size: 42px; margin-bottom: 18px; }
+    .section-subtitle { color: #ccc; max-width: 750px; line-height: 1.7; margin-bottom: 35px; }
+    .dark-section { background: #181818; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
+    .card {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      padding: 28px; border-radius: 22px; transition: .3s;
+      
+    }
+    .card:hover { transform: translateY(-6px); background: rgba(255,255,255,.11); }
+    .card h3 { color: #6ee7b7; margin-bottom: 12px; font-size: 23px; }
+    .card p { color: #ddd; line-height: 1.6; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .gallery img {
+      width: 100%; height: 260px; object-fit: cover; border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.12); background: #333;
+    }
+    .location-box, .booking-box {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 35px; align-items: start;
+       background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.75)), url("images/hero.png");
+    }
+    iframe { width: 100%; height: 380px; border: none; border-radius: 22px; }
+    form {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      padding: 30px; border-radius: 24px;
+    }
+    label { display: block; margin-bottom: 7px; font-weight: 800; }
+    input, textarea {
+      width: 100%; padding: 14px; margin-bottom: 18px; border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.2); background: rgba(0,0,0,.35);
+      color: white; outline: none;
+    }
+    input:focus, textarea:focus { border-color: #6ee7b7; }
+    .price-box {
+      background: rgba(110,231,183,.12); border: 1px solid rgba(110,231,183,.35);
+      padding: 22px; border-radius: 18px; margin-bottom: 20px;
+    }
+    .price-box h3 { color: #6ee7b7; margin-bottom: 10px; }
+    .total { font-size: 26px; color: #6ee7b7; font-weight: 900; margin-bottom: 18px; }
+    footer { text-align: center; padding: 30px; background: #050505; color: #aaa; }
+    @media (max-width: 800px) {
+      nav { flex-direction: column; gap: 12px; padding: 14px 5%; }
+      nav ul { flex-wrap: wrap; justify-content: center; gap: 12px; }
+      .hero h1 { font-size: 38px; }
+      .hero p { font-size: 17px; }
+      .location-box, .booking-box { grid-template-columns: 1fr; }
+      section { padding: 70px 6%; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">MountView <span>Farmhouse</span></div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#booking">Booking</a></li>
+    </ul>
+  </nav>
+
+<section class="hero" id="home">
+
+  <video autoplay muted loop playsinline>
+    <source src="images/farmhouse-video.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-content">
+```
+
+      <span class="tag">Sunkenepally, Choutuppal, Telangana</span>
+      <h1>Enjoy a private farmhouse getaway with pool, BBQ, bonfire and more.</h1>
+      <p>MountView Farmhouse is perfect for family gatherings, birthday parties, weekend stays and friends outings.</p>
+      <a href="#booking" class="btn">Book Now</a>
+      <a href="tel:+917396513084" class="btn dark">Call Us</a>
+    </div>
+  </section>
+
+<section id="amenities" class="amenities-section">
+
+  <video class="amenities-video" autoplay muted loop playsinline>
+    <source src="images/amenities-video.mp4" type="video/mp4">
+  </video>
+
+  <div class="amenities-overlay"></div>
+
+  <div class="amenities-content">
+
+    <h2 class="section-title">Amenities</h2>
+    <p class="section-subtitle">Everything you need for a relaxing and fun farmhouse experience.</p>
+    <div class="cards">
+      <div class="card"><h3>Big Pool</h3><p>Enjoy a spacious pool with family and friends.</p></div>
+      <div class="card"><h3>Bonfire</h3><p>Perfect night vibe with a cozy bonfire setup.</p></div>
+      <div class="card"><h3>BBQ</h3><p>Enjoy outdoor BBQ sessions with your group.</p></div>
+      <div class="card"><h3>Big Rooms</h3><p>Comfortable rooms for group stays and relaxation.</p></div>
+      <div class="card"><h3>Cricket Pitch</h3><p>Play cricket and enjoy open outdoor space.</p></div>
+      <div class="card"><h3>Kids Play Area</h3><p>Fun and safe play area for children.</p></div>
+      <div class="card"><h3>Arabian Sitting</h3><p>Beautiful sitting area for relaxing and photos.</p></div>
+    </div>
+  </section>
+
+ 
+<section class="dark-section" id="gallery">
+  <h2 class="section-title">Farmhouse Experience</h2>
+  <p class="section-subtitle">
+    Explore MountView Farmhouse through our videos.
+  </p>
+
+  <div class="video-gallery">
+
+    <video controls autoplay muted loop playsinline>
+      <source src="images/farm-video-1.mp4" type="video/mp4">
+    </video>
+
+    <video controls autoplay muted loop playsinline>
+      <source src="images/farm-video-2.mp4" type="video/mp4">
+    </video>
+
+  </div>
+</section>
+```
+
+
+<section id="location" class="location-section">
+
+  <video class="location-video" autoplay muted loop playsinline>
+    <source src="images/location-video.mp4" type="video/mp4">
+  </video>
+
+  <div class="location-overlay"></div>
+
+  <div class="location-content">
+
+
+    <div class="location-box">
+      <div>
+        <h2 class="section-title">Location</h2>
+        <p class="section-subtitle">MountView Farmhouse is located at Sunkenepally, Choutuppal, Telangana 508252, India.</p>
+        <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Sunkenepally%2C%20Choutuppal%2C%20Telangana%20508252%2C%20India">Open in Google Maps</a>
+      </div>
+      <iframe src="https://www.google.com/maps?q=Sunkenepally,%20Choutuppal,%20Telangana%20508252,%20India&output=embed"></iframe>
+    </div>
+  </section>
+
+  <section class="dark-section" id="booking">
+    <div class="booking-box">
+      <div>
+        <h2 class="section-title">Booking Request</h2>
+        <p class="section-subtitle">Fill the form and send your booking request directly on WhatsApp. We will confirm availability manually.</p>
+        <div class="price-box">
+          <h3>Price</h3>
+          <p>₹8,999 for 24 hours up to 25 guests.</p>
+          <p>For more than 25 guests: ₹500 extra per additional guest.</p>
+        </div>
+      </div>
+
+      <form onsubmit="sendWhatsApp(event)">
+        <label>Your Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+
+        <label>Phone Number</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+        <label>Check-in Date</label>
+        <input type="date" id="checkin" required>
+
+        <label>Check-out Date</label>
+        <input type="date" id="checkout" required>
+
+        <label>Number of Guests</label>
+        <input type="number" id="guests" value="25" min="1" oninput="calculatePrice()" required>
+
+        <p class="total">Estimated Total: ₹<span id="total">8,999</span></p>
+
+        <label>Message</label>
+        <textarea id="message" rows="4" placeholder="Any special request?"></textarea>
+
+        <button type="submit" class="btn">Send Booking Request on WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">Call or WhatsApp MountView Farmhouse for booking confirmation and availability.</p>
+    <a href="tel:+917396513084" class="btn">Call: +91 7396513084</a>
+    <a href="https://wa.me/917396513084" target="_blank" class="btn dark">WhatsApp</a>
+  </section>
+
+  <footer>
+    <p>© 2026 MountView Farmhouse. All rights reserved.</p>
+  </footer>
+
+  <script>
+   function calculatePrice() { const guests = Number(document.getElementById("guests").value);
+    const checkin = new Date(document.getElementById("checkin").value);
+     const checkout = new Date(document.getElementById("checkout").value);
+      let days = 1; if (checkin && checkout && checkout > checkin) { const diffTime = checkout - checkin; days = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+
+      } // ₹8,999 per 24 hours
+       let total = days * 8999; // Only one extra ₹500 charge if guests exceed 25
+        if (guests > 25) { total += 500; } document.getElementById("total").innerText = total.toLocaleString("en-IN"); return total;
+    }
+
+    function sendWhatsApp(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const checkin = document.getElementById("checkin").value;
+      const checkout = document.getElementById("checkout").value;
+      const guests = document.getElementById("guests").value;
+      const message = document.getElementById("message").value;
+      const total = calculatePrice();
+
+      const text =
+        `Hello MountView Farmhouse,%0A%0AI want to book the farmhouse.%0A%0A` +
+        `Name: ${encodeURIComponent(name)}%0A` +
+        `Phone: ${encodeURIComponent(phone)}%0A` +
+        `Check-in: ${encodeURIComponent(checkin)}%0A` +
+        `Check-out: ${encodeURIComponent(checkout)}%0A` +
+        `Guests: ${encodeURIComponent(guests)}%0A` +
+        `Estimated Total: ₹${total.toLocaleString("en-IN")}%0A` +
+        `Message: ${encodeURIComponent(message)}`;
+
+      window.open(`https://wa.me/917396513084?text=${text}`, "_blank");
+    }
+  </script>
+<audio id="bgMusic" autoplay loop>
+  <source src="images/music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  window.addEventListener("click", () => {
+    const audio = document.getElementById("bgMusic");
+    audio.play();
+  }, { once: true });
+</script>
+
+
+</body>
+</html>
