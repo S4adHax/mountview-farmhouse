@@ -342,7 +342,7 @@
       let days = 1; if (checkin && checkout && checkout > checkin) { const diffTime = checkout - checkin; days = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
 
       } // ₹10,500 per 24 hours
-       let total = days * 10,500; // Only one extra ₹250 charge if guests exceed 25
+       let total = days * 10500; // Only one extra ₹250 charge if guests exceed 25
  if (guests > 25) {
     total += (guests - 25) * 250;
   }
