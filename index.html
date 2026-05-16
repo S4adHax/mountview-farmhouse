@@ -278,8 +278,8 @@
         <p class="section-subtitle">Fill the form and send your booking request directly on WhatsApp. We will confirm availability manually.</p>
         <div class="price-box">
           <h3>Price</h3>
-          <p>₹9,500 for 24 hours up to 25 guests.</p>
-          <p>For more than 25 guests: ₹300 extra per additional guest.</p>
+          <p>₹10,500 for 24 hours up to 25 guests.</p>
+          <p>For more than 25 guests: ₹250 extra per additional guest.</p>
         </div>
       </div>
 
@@ -299,7 +299,7 @@
         <label>Number of Guests</label>
         <input type="number" id="guests" value="25" min="1" oninput="calculatePrice()" required>
 
-        <p class="total">Estimated Total: ₹<span id="total">9,500</span></p>
+        <p class="total">Estimated Total: ₹<span id="total">10,500</span></p>
 
         <label>Message</label>
         <textarea id="message" rows="4" placeholder="Any special request?"></textarea>
@@ -341,10 +341,15 @@
      const checkout = new Date(document.getElementById("checkout").value);
       let days = 1; if (checkin && checkout && checkout > checkin) { const diffTime = checkout - checkin; days = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
 
-      } // ₹8,999 per 24 hours
-       let total = days * 9500; // Only one extra ₹500 charge if guests exceed 25
-        if (guests > 25) { total += 300; } document.getElementById("total").innerText = total.toLocaleString("en-IN"); return total;
-    }
+      } // ₹10,500 per 24 hours
+       let total = days * 10,500; // Only one extra ₹250 charge if guests exceed 25
+ if (guests > 25) {
+    total += (guests - 25) * 250;
+  }
+
+  document.getElementById("total").innerText = total.toLocaleString("en-IN");
+  return total;
+}
 
     function sendWhatsApp(event) {
       event.preventDefault();
