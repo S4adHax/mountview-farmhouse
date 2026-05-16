@@ -19,10 +19,10 @@ Sunkenepally, Choutuppal, Telangana 508252, India
 Phone / WhatsApp: +91 7396513084
 
 ## Pricing
-₹8,999 per 24 hours (up to 25 guests)
+₹10,500 per 24 hours (up to 25 guests)
 
 For more than 25 guests:
-Additional ₹500 charge.
+Additional ₹250 charge.
 
 ## Technologies Used
 - HTML
